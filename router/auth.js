@@ -32,38 +32,10 @@ router.post('/register',async(req,res)=>{
             res.status(201).json({message:"Sucessful Registered"})
         }
        
-        // const userRegister = await user.save();
-
-      
-        // if(userRegister){
-        //     res.status(201).json({message:"Sucessful Registered"})
-        // }else{
-        //     res.status(500).json({error:"Failed to Register"})
-        // }
     }catch(err){
         console.log(err);
     }
 })
-
-// using promises
-
-// router.post('/register',(req,res)=>{
-//     // res.json({message:req.body});
-//     const {name,email,phone,work,password,Cpassword} = req.body
-//     if(!name || !email || !phone || !work || !password || !Cpassword){
-//         return res.status(422).json({Error:"plz fill the fields"})
-//     }
-//     User.findOne({email:email})
-//     .then((userExist)=>{
-//         if(userExist){
-//             return res.status(422).json({Error:"Email already Exist"})
-//         }
-//         const user = new User({name,email,phone,work,password,Cpassword})
-//         user.save().then(()=>{
-//             return res.status(201).json({message:"Sucessful Registered"})
-//         }).catch((err)=> res.status(500).json({error:"Failed to Register"}))
-//     }).catch(err=>{console.log(err);});
-// })
 
 
 router.post('/signin',async(req,res)=>{
