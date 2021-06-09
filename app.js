@@ -10,7 +10,7 @@ require('./db/conn');
 
 app.use(express.json())
 
-const PORT = process.env.PORT || 3005
+const PORT = process.env.PORT
 
 app.use(require('./router/auth'))
 
