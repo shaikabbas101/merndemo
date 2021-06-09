@@ -1,7 +1,6 @@
 {
   "name": "nxt-trenz",
   "private": true,
-  "proxy":"http://localhost:3005",
   "version": "1.0.0",
   "engines": {
     "node": "^10.13 || 12 || 14 || 15",

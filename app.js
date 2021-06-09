@@ -1,5 +1,5 @@
 const dotenv = require('dotenv')
-const mongoose = require('mongoose');
+const path = require('path')
 const express = require('express');
 const app = express();
 
@@ -22,9 +22,9 @@ const middleware = (req,res,next)=>{
 }
 
 
-app.get('/',(req,res)=>{
-    res.send('Hello world from home')
-});
+// app.get('/',(req,res)=>{
+//     res.send('Hello world from home')
+// });
 app.get('/about',middleware,(req,res)=>{
     res.send('Hello world from about')
 });
@@ -39,8 +39,18 @@ app.get('/signin',(req,res)=>{
 });
 
 if(process.env.NODE_ENV=="production"){
-    app.use(express.static("client/build"));
+    app.use(express.static(path.join(__dirname,"/client/build")));
+
+    app.get('*',(req,res)=>{
+        res.sendFile(path.join(__dirname,'client','build','index.html'))
+    })
+}else{
+    app.get('/',(req,res)=>{
+        res.send('Api running')
+    });
 }
+
+
 
 app.listen(PORT, ()=>{
     console.log(`server is running at port no ${PORT}`)
