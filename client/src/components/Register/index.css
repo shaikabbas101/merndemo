@@ -1,0 +1,86 @@
+.input-field{
+    font-size: 14px;
+    height: 40px;
+    border: 1px solid #d7dfe9;
+    background-color: #e2e8f0;
+    color: #64748b;
+    border-radius: 2px;
+    margin-top: 5px;
+    padding: 8px 16px 8px 16px;
+  }
+.register-btn{
+
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 14px;
+    color:#ffffff;
+    height: 40px;
+    width:120px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    background-color: #0b69ff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  
+}
+.registration-form-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:transparent;
+  border-radius:20px;
+  box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.08);
+  border:none;
+  width:80%;
+  padding:20px;
+  margin-bottom: 20px;
+}
+@media screen and (min-width:768px){
+  .registration-form-container{
+  margin-left:15px;
+  order:1;
+  width:40%;
+}
+}
+
+.registration-container{
+  background-color:#ffffff ;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  padding:20px;
+}
+
+.input-label{
+  color:#000000;
+  font-weight:bold;
+  font-family: "Roboto";
+  font-size:14px;
+}
+.heading{
+  font-family:"Roboto"
+}
+.already-user{
+  font-family: "Roboto";
+}
+.signin{
+  font-family: "Roboto";
+  margin-left:8px;
+}
+.logo-desktop-image{
+  display:none;
+}
+@media screen and (min-width:768px){
+  .logo-desktop-image{
+    width:40%;
+    display:flex;
+  }
+
+  .registration-container{
+    flex-direction: row;
+  }
+}
