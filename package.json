@@ -9,11 +9,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "node demo/app.js",
+    "backend": "nodemon demo/app.js",
+    "frontend": "npm run front --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
-  "author": "",
+  "author": "Abbas",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
