@@ -14,9 +14,7 @@ const User = require('../model/userSchema');
 // asysc await
 
 router.post('/register',async(req,res)=>{
-    // res.json({message:req.body});
     const {name,username,phone,password,Cpassword} = req.body
-    // console.log(req.body)
     if(!name || !username || !phone || !password || !Cpassword){
         return res.status(422).json({Error:"plz fill the fields"})
     }
@@ -39,8 +37,6 @@ router.post('/register',async(req,res)=>{
 
 
 router.post('/signin',async(req,res)=>{
-    // console.log(req.body);
-    // res.json({message:"Awesome"})
     try{
         let token;
         const {username,password}= req.body;
@@ -48,7 +44,6 @@ router.post('/signin',async(req,res)=>{
             return res.status(400).json({error:"**Plz fill the data**"})
         }
         const userLogin = await User.findOne({username:username});
-        // console.log(userLogin)
         if(userLogin){
         const isPassMatch = await bcrypt.compare(password,userLogin.password)
         
