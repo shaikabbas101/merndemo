@@ -126,8 +126,8 @@ class Register extends Component{
         if(password !== Cpassword){
             alert("Password are not matching")
         }
-        else if(response.status===422 || !data){
-            alert("please fill all the fields")
+        else if(!data){
+            alert("User Already Exist")
         }else{
             alert('Registration Successful') 
             history.push('/')
