@@ -124,7 +124,7 @@ class Register extends Component{
         const data = await response.json()
         console.log(data)
         if(response.status===422 && data.Error==="plz fill the fields"){
-            alert("please fill all the fields")
+            alert("Please fill all the fields")
         }
         else if(password !== Cpassword ){
             alert("Password are not matching")
