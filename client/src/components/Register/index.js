@@ -123,10 +123,13 @@ class Register extends Component{
         const response = await fetch(url,options);
         const data = await response.json()
         console.log(data)
-        if(password !== Cpassword){
+        if(response.Error==="plz fill the fields"){
+            alert("please fill all the fields")
+        }
+        else if(password !== Cpassword){
             alert("Password are not matching")
         }
-        else if(response.status===422){
+        else if(response.Error==="Username already Exist"){
             alert("User Already exist")
         }else{
             alert('Registration Successful') 
