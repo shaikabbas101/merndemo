@@ -8,38 +8,69 @@ class Register extends Component{
         username:'',
         phone: '',
         password:'',
-        Cpassword:''
+        Cpassword:'',
+        isFieldEmpty:false
     }
 
 
     onChangeName = (event) =>{
+        if(event.target.value===""){
+            this.setState({
+                isFieldEmpty:true
+            })
+        }else{
         this.setState({
             name: event.target.value
         })
     }
+    }
     
     onChangeUsername = (event) =>{
+        if(event.target.value===""){
+            this.setState({
+                isFieldEmpty:true
+            })
+        }else{
         this.setState({
             username: event.target.value
         })
     }
+    }
 
     onChangePhone = (event) =>{
+        if(event.target.value===""){
+            this.setState({
+                isFieldEmpty:true
+            })
+        }else{
         this.setState({
             phone: event.target.value
         })
     }
+    }
 
     onChangePassword = (event) =>{
+        if(event.target.value===""){
+            this.setState({
+                isFieldEmpty:true
+            })
+        }else{
         this.setState({
             password: event.target.value
         })
     }
+    }
 
     onChangeCpassword = (event) =>{
+        if(event.target.value===""){
+            this.setState({
+                isFieldEmpty:true
+            })
+        }else{
         this.setState({
             Cpassword: event.target.value
         })
+    }
     }
 
     submitForm = async(e)=>{
@@ -62,16 +93,15 @@ class Register extends Component{
             alert("Password are not matching")
         }
         else if(response.status===422 || !data){
-            alert("username already exist or please plz all the fields")
+            alert("please plz all the fields")
         }else{
-            alert('Registration Successful')
-            
-            history.push('/login')
+            alert('Registration Successful') 
+            history.push('/')
         }
     }
 
     render(){
-        const {name,username,phone,password,Cpassword} =this.state
+        const {name,username,phone,password,Cpassword,isFieldEmpty} =this.state
 
         return(
             <div className="registration-container">
@@ -96,6 +126,7 @@ class Register extends Component{
                      placeholder="name"
                      onChange={this.onChangeName}
                      />
+                     {isFieldEmpty && <p>*Required</p>}
                     </div>
                     
                     <div className="input-container">
@@ -108,6 +139,7 @@ class Register extends Component{
                      placeholder="Username"
                      onChange={this.onChangeUsername}
                      />
+                     {isFieldEmpty && <p>*Required</p>}
                     </div>
                     
                     <div className="input-container">
@@ -120,6 +152,7 @@ class Register extends Component{
                      placeholder="Phone"
                      onChange={this.onChangePhone}
                      />
+                     {isFieldEmpty && <p>*Required</p>}
                     </div>
                     
                     <div className="input-container">
@@ -132,6 +165,7 @@ class Register extends Component{
                      placeholder="Password"
                      onChange={this.onChangePassword}
                      />
+                     {isFieldEmpty && <p>*Required</p>}
                     </div>
                     
                     <div className="input-container">
@@ -144,6 +178,7 @@ class Register extends Component{
                      placeholder="Confirm Password"
                      onChange={this.onChangeCpassword}
                      />
+                     {isFieldEmpty && <p>*Required</p>}
                     </div>
                     <button type="submit" onClick={this.submitForm} className="register-btn">
                         Register
