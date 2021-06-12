@@ -126,8 +126,10 @@ class Register extends Component{
         if(response.status===422 && data.Error==="plz fill the fields"){
             alert("please fill all the fields")
         }
-        else if(password !== Cpassword){
+        else if(password !== Cpassword ){
             alert("Password are not matching")
+        }else if(password.length<=6){
+            alert("password length should be min 6 characters")
         }
         else if(response.status===422 && data.Error==="Username already Exist"){
             alert("User Already exist")
