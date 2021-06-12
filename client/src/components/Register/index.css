@@ -84,3 +84,9 @@
     flex-direction: row;
   }
 }
+.err-msg{
+  color:red;
+  font-weight: 500;
+  font-size:14px;
+  font-family: "Roboto";
+}
