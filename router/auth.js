@@ -51,7 +51,7 @@ router.post('/signin',async(req,res)=>{
             res.status(400).json({error:"**Invalid Credentials**"})
         }else{
             token = await userLogin.generateAuthToken();
-            console.log(token)
+            // console.log(token)
             res.json({message:"user signin succesful",jwt_token:token})
         }
     }else{
