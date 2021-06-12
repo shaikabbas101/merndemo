@@ -32,7 +32,7 @@ class Register extends Component{
     onChangeUsername = (event) =>{
         if(event.target.value!==''){
             this.setState({
-                isNameFieldEmpty:false
+                isUserNameFieldEmpty:false
             })
            }
         this.setState({
@@ -44,7 +44,7 @@ class Register extends Component{
     onChangePhone = (event) =>{
         if(event.target.value!==''){
             this.setState({
-                isNameFieldEmpty:false
+                isPhoneFieldEmpty:false
             })
            }
         this.setState({
@@ -56,7 +56,7 @@ class Register extends Component{
     onChangePassword = (event) =>{
         if(event.target.value!==''){
             this.setState({
-                isNameFieldEmpty:false
+                isPassFieldEmpty:false
             })
            }
         this.setState({
@@ -68,7 +68,7 @@ class Register extends Component{
     onChangeCpassword = (event) =>{
         if(event.target.value!==''){
             this.setState({
-                isNameFieldEmpty:false
+                isCpassFieldEmpty:false
             })
            }
         this.setState({
