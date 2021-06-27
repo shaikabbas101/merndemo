@@ -134,7 +134,7 @@ class Register extends Component{
         }else if(password.length < 6){
             alert("password length should be min 6 characters")
         }
-        else if(response.status===422 && data.error==="Username already Exist"){
+        else if(response.status===422 && data.error==="User Already exits"){
             alert("User Already exist")
         }else{
             alert('Registration Successful') 
