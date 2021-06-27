@@ -37,7 +37,7 @@ class LoginForm extends Component {
     event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
-    const url = '/signin'
+    const url = '/signIn'
     const options = {
       method: 'POST',
       headers:{
