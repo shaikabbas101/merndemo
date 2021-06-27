@@ -122,8 +122,8 @@ class Register extends Component{
         }
         const response = await fetch(url,options);
         const data = await response.json()
-        console.log(data)
-        if(response.status===422 && data.Error==="plz fill the fields"){
+        // console.log(data)
+        if(data.error==="Pls fill all the Details"){
             alert("Please fill all the fields")
         }
         else if(phone.length !==10 ){
@@ -134,7 +134,7 @@ class Register extends Component{
         }else if(password.length < 6){
             alert("password length should be min 6 characters")
         }
-        else if(response.status===422 && data.Error==="Username already Exist"){
+        else if(data.error==="Username already Exist"){
             alert("User Already exist")
         }else{
             alert('Registration Successful') 

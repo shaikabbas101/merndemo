@@ -42,9 +42,9 @@ app.post('/register', async (req,res)=>{
     const selectUserQuery = `SELECT * FROM user WHERE username='${username}';`;
     const dbUser = await db.get(selectUserQuery);
     if(!name || !username || !phone || !password || !Cpassword){
-        res.status(422).json({Error: "Pls fill all the Details"})
+        res.status(422).json({error: "Pls fill all the Details"})
     }
-    if(dbUser === undefined){
+    else if(dbUser === undefined){
         const createUserQuery = `
         INSERT INTO 
         user(name,username,phone,password,Cpassword) 
@@ -59,7 +59,7 @@ app.post('/register', async (req,res)=>{
         await db.run(createUserQuery)
         res.status(200).json({message:"User Created Successfully"})
     }else{
-        res.status(422).json({Error:"User Already exits"})
+        res.status(422).json({error:"User Already exits"})
     }
 })
 
@@ -74,6 +74,7 @@ app.post('/signIn',async(req,res)=>{
         res.status(400).json({error:"Invalid username or password"})
     }else{
         const isPasswordMatch = await bcrypt.compare(password,dbUser.password)
+
         if(isPasswordMatch){
             const payload = {
                 username:username
