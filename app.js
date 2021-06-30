@@ -45,6 +45,16 @@ app.post('/register', async (req,res)=>{
         res.status(422).json({error: "Pls fill all the Details"})
     }
     else if(dbUser === undefined){
+        if(phone.length!==10){
+            res.status(422).json({error:"Invalid Phone Number"})
+        }
+        else if(password!==Cpassword){
+            res.status(422).json({error:"Passwords are not Matching"})
+        }
+        else if(password.length<6){
+            res.status(422).json({error:"Passwords length should be minimum 6 characters"})
+        }
+        else{
         const createUserQuery = `
         INSERT INTO 
         user(name,username,phone,password,Cpassword) 
@@ -58,6 +68,7 @@ app.post('/register', async (req,res)=>{
         `;
         await db.run(createUserQuery)
         res.status(200).json({message:"User Created Successfully"})
+      }
     }else{
         res.status(422).json({error:"User Already exits"})
     }
